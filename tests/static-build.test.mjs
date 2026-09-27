@@ -6,6 +6,7 @@ const output = new URL("../dist/", import.meta.url);
 
 test("production build contains the configurator and its assets", async () => {
   await access(new URL("index.html", output));
+  await access(new URL("favicon.svg", output));
   const html = await readFile(new URL("index.html", output), "utf8");
   assert.match(html, /Morrow 01 — Product configurator/);
   assert.match(html, /<div id="root"><\/div>/);
